@@ -21,6 +21,13 @@ when ODIN_OS == .Windows {
 	foreign import libshaderc "./libs/shaderc_combined.lib"
 }
 
+when ODIN_OS == .Linux {
+	foreign import libshaderc {
+		"./libs/libshaderc_combined.a",
+		"system:stdc++",
+	}
+}
+
 @(default_calling_convention = "c")
 @(link_prefix = "shaderc_")
 foreign libshaderc {
